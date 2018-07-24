@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Hero } from '../hero'
-import { HEROES } from '../mock-heroes'
+import { HeroService } from '../hero.service' // 不需要关系数据到底是怎么来的（模拟、http请求....）
 
 @Component({
   selector: 'app-heroes',
@@ -11,11 +11,17 @@ export class HeroesComponent implements OnInit {
 
   selectedHero: Hero;
 
-  heroes = HEROES
+  heroes: Hero[];
 
-  constructor() { }
+  constructor(private heroService: HeroService) { }
 
   ngOnInit() {
+    this.heroService.getHeroes().subscribe(
+      heroes => this.heroes = heroes // 如果只有next可以这样处理
+      /* {
+        next: heroes => this.heroes = heroes
+      } */
+    );
   }
 
   onSelect(hero: Hero): void {
