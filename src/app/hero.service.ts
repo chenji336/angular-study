@@ -21,7 +21,14 @@ export class HeroService {
     const temp = new Temp()
     temp.data = ['1']
 
-    
+
     return of(HEROES);
+  }
+
+  getHero(id: number): Observable<Hero> {
+    // 把service当作存储数据的地方了（这里添加了，在组件里面也可以访问到，因为是单一实例）
+    this.messageService.add(`HeroService: fetched hero id=${id}.`);
+
+    return of(HEROES.find(hero => hero.id === id));
   }
 }

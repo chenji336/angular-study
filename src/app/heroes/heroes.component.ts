@@ -9,8 +9,6 @@ import { HeroService } from '../hero.service' // 不需要关系数据到底是�
 })
 export class HeroesComponent implements OnInit {
 
-  selectedHero: Hero;
-
   heroes: Hero[];
 
   constructor(private heroService: HeroService) { }
@@ -22,10 +20,6 @@ export class HeroesComponent implements OnInit {
         next: heroes => this.heroes = heroes
       } */
     );
-  }
-
-  onSelect(hero: Hero): void {
-    this.selectedHero = hero;
   }
 
 }

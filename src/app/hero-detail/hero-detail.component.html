@@ -1,4 +1,10 @@
 <div *ngIf='hero'>
+
+
+  <!-- uppercase内置的管道（pipe） -->
+  <h2>{{ hero.name | uppercase }} Details</h2>
+  <div>
+    <span>id: </span>{{hero.id}}</div>
   <!-- 双向绑定；pipe通道 -->
   <div>
     <label>
@@ -7,11 +13,5 @@
       <!-- 如果不添加FormModule这里使用ngModule会报错 -->
     </label>
   </div>
-
-  <!-- uppercase内置的管道（pipe） -->
-  <h2>{{ hero.name | uppercase }} Details</h2>
-  <div>
-    <span>id: </span>{{hero.id}}</div>
-  <div>
-    <span>name: </span>{{hero.name}}</div>
+  <button (click)="goBack()">go back</button>
 </div>
