@@ -1,3 +1,4 @@
+
 import { BrowserModule } from '@angular/platform-browser'; // 包含commonModule--ngIf等；applicationModule应用module
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms'; // 可以使用：[(ngModel)]
@@ -14,6 +15,10 @@ import { AppRoutingModule } from './app-routing.module'
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { HeroSearchComponent } from './hero-search/hero-search.component';
 import { StudyComponent } from './study/study.component';
+import { MaterialComponent } from './material/material.component';
+
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatCardModule, MatGridListModule, MatIconModule, MatButtonModule, MatMenuModule } from '@angular/material';
 
 @NgModule({
   declarations: [
@@ -23,7 +28,8 @@ import { StudyComponent } from './study/study.component';
     MessagesComponent,
     DashboardComponent,
     HeroSearchComponent,
-    StudyComponent, 
+    MaterialComponent,
+    StudyComponent,
   ],
   imports: [
     BrowserModule,
@@ -31,8 +37,14 @@ import { StudyComponent } from './study/study.component';
     AppRoutingModule,
     HttpClientModule,
     HttpClientInMemoryWebApiModule.forRoot(
-      InMemoryDataService, {dataEncapsulation: false}
-    )
+      InMemoryDataService, { dataEncapsulation: false }
+    ),
+    MatGridListModule,
+    MatCardModule,
+    MatMenuModule,
+    MatIconModule,
+    MatButtonModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

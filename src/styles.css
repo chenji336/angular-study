@@ -24,7 +24,9 @@ button {
     font-family: Cambria, Georgia;
 }
 
-/* everywhere else */
+/* ever
+body { margin: 0; }
+ywhere else */
 
 * {
     font-family: Arial, Helvetica, sans-serif;
