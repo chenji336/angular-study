@@ -1,0 +1,12 @@
+<h1>{{title}}</h1>
+
+<!-- 这里可以使用app-heroes,只要在app.module里面定义了就可以使用（不需要app.component里面定义） -->
+<!-- <app-heroes></app-heroes> -->
+
+<nav>
+    <a routerLink='/heroes'>Heroes</a>
+    <a routerLink='/dashboard'>Dashboard</a>
+    <!-- <a routerLink="[{ outlets: { popup: ['heroes'] } }]">Heroes</a>
+    <a routerLink="[{ outlets: { popup: ['dashboard'] } }]">Dashboard</a> -->
+</nav>
+<router-outlet></router-outlet>
