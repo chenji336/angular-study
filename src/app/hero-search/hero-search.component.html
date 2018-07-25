@@ -1,0 +1,14 @@
+<div class='search-component'>
+  <h4>Hero search</h4>
+  
+  <input #searchBox id='search-box' (keyup)='search(searchBox.value)'>
+
+  <ul class='search-result'>
+    <!-- heroes$是Observable类型，不是数据，所以使用asyncPipe，让其执行里面的subscribe获得数据 -->
+    <li *ngFor='let hero of heroes$ | async'>
+      <a routerLink='/detail/{{hero.id}}'>
+        {{hero.name}}
+      </a>
+    </li>
+  </ul>
+</div>
