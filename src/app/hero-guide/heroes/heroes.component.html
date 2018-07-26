@@ -11,7 +11,7 @@
 
 <ul class="heroes">
   <li *ngFor='let hero of heroes'>
-    <a routerLink='/detail/{{hero.id}}'>
+    <a routerLink='/guide/detail/{{hero.id}}'>
       <!-- *routerLink中使用变量需要使用{{}} -->
       <span class="badge">{{hero.id}}</span> {{hero.name}}
     </a>

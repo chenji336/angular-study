@@ -2,9 +2,16 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router'
 
 const routes: Routes = [
-  {path: 'guide', redirectTo: '/guide', pathMatch: 'full'},
-  {path: 'study', redirectTo: '/study', pathMatch: 'full'},
-  {path: '', redirectTo: '/guide', pathMatch: 'full'},
+  // {path: 'guide', redirectTo: '/guide', pathMatch: 'full'},
+  // {path: 'study', redirectTo: '/study', pathMatch: 'full'},
+  {
+    path: 'guide',
+    loadChildren: 'src/app/hero-guide/hero-guide.module#HeroGuideModule'
+  }, {
+    path: 'study',
+    loadChildren: 'src/app/study/study.module#StudyModule'
+  },
+  {path: '', redirectTo: '', pathMatch: 'full'},
 ]
 
 @NgModule({

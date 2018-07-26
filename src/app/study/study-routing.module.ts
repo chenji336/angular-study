@@ -3,7 +3,7 @@ import { Routes, RouterModule } from '@angular/router'
 import { StudyComponent } from './study.component'
 
 const routes: Routes = [{
-    path: 'study',
+    path: '',
     component: StudyComponent
 }]
 

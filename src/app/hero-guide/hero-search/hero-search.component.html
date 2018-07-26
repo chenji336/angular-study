@@ -6,7 +6,7 @@
   <ul class='search-result'>
     <!-- heroes$是Observable类型，不是数据，所以使用asyncPipe，让其执行里面的subscribe获得数据 -->
     <li *ngFor='let hero of heroes$ | async'>
-      <a routerLink='/detail/{{hero.id}}'>
+      <a routerLink='/guide/detail/{{hero.id}}'>
         {{hero.name}}
       </a>
     </li>
