@@ -11,7 +11,7 @@ const routes: Routes = [
     path: 'study',
     loadChildren: 'src/app/study/study.module#StudyModule'
   },
-  {path: '', redirectTo: '', pathMatch: 'full'},
+  {path: '', redirectTo: 'study', pathMatch: 'full'},
 ]
 
 @NgModule({
