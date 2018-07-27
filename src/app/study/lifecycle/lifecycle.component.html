@@ -1,0 +1,19 @@
+<div class="parent">
+  <h2>{{title}}</h2>
+
+  <table>
+    <tr><td>Power: </td><td><input [(ngModel)]="power"></td></tr>
+    <!-- hero需要先赋值，否则为空的话会报错 -->
+    <tr><td>Hero.name: </td><td><input [(ngModel)]="hero.name"></td></tr>
+  </table>
+  <p><button (click)="reset()">Reset Log</button></p>
+
+  <div>
+      parentValue:<input type="text" [(ngModel)]='parentValue'>
+      <div>显示showChildInput：{{showChildInput}}</div>
+  </div>
+  
+  <ng-content></ng-content>
+
+   <app-child [hero]="hero" [power]="power" (triggerParentFn)="triggerParentFn()"></app-child>
+</div>

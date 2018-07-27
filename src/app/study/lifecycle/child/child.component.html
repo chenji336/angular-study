@@ -1,0 +1,11 @@
+<div class="hero">
+  <p>{{hero.name}} can {{power}}</p>
+
+  <input [(ngModel)]='childInput'>
+
+  <button (click)='onClick()'>triggleParent</button>
+
+
+  <h4>-- Change Log --</h4>
+  <div *ngFor="let chg of changeLog">{{chg}}</div>
+</div>
