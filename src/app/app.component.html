@@ -1,6 +1,8 @@
 <nav>
-    <a routerLink='/guide'>Guide</a>
-    <a routerLink='/study'>Study</a>
+    <!-- routerLink导航进guide路由；routerLinkActive可以添加css样式（active会高亮） -->
+    <a routerLink='/guide' routerLinkActive='active'>Guide</a> 
+    <a routerLink='/study' routerLinkActive='active'>Study</a>
+    <a routerLink='/not-foundxxx' routerLinkActive='active'>PageNotFound</a>
     <!-- <a routerLink=''>Home</a> -->
 </nav>
 <!-- 可以使用router-outlet是因为RouterModule里面有该组件 -->

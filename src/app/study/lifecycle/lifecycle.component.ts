@@ -45,7 +45,7 @@ export class LifecycleComponent implements OnInit, AfterViewInit, AfterViewCheck
 
   ngAfterViewChecked() {
     console.log('ngAfterViewChecked-this.childView.childInput:', this.childView.childInput);
-    // this.showChildInput = this.childView.childInput // 会报错，因为在视图组合好之后还想渲染一波
+    // this.showChildInput = this.childView.childInput // 会报错，因为在视图组合好之后还想渲染一波（Angular 的“单向数据流”规则禁止在一个视图已经被组合好之后再更新视图。 而这两个钩子都是在组件的视图已经被组合好之后触发的。）
     // this.showChildInput = this.parentValue // 会报错，因为在视图组合好之后还想渲染一波
 
     // 解决方案

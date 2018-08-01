@@ -24,6 +24,7 @@ export class HeroDetailComponent implements OnInit {
   }
 
   getHero(): void {
+    console.log('this.route.snapshot:', this.route.snapshot); // ActivateRoute是获取路由事件中： ActionStart的里面参数
     const id = +this.route.snapshot.paramMap.get('id');
     this.heroService.getHero(id)
       .subscribe(hero => {

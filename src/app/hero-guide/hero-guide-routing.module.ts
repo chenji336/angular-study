@@ -4,11 +4,13 @@ import { HeroGuideComponent } from './hero-guide.component'
 import { HeroesComponent } from './heroes/heroes.component'
 import { DashboardComponent } from './dashboard/dashboard.component'
 import { HeroDetailComponent } from './hero-detail/hero-detail.component'
+import { CrisisCneterComponent } from './crisis-cneter/crisis-cneter.component'
 
 const routes: Routes = [
   // lazy router，默认就是外面的域名，后面的访问都需要添加前面域名。比如：heroes需要/guide/heroes
   {path: '', component: HeroGuideComponent},
   {path: 'heroes', component: HeroesComponent},
+  {path: 'crisis-center', component: CrisisCneterComponent},
   {path: 'dashboard', component: DashboardComponent},
   {path: 'detail/:id', component: HeroDetailComponent},
 ]

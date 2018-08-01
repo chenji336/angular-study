@@ -15,6 +15,7 @@ import { MessagesComponent } from './messages/messages.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { HeroSearchComponent } from './hero-search/hero-search.component';
 import { HeroGuideComponent } from './hero-guide.component';
+import { CrisisCneterComponent } from './crisis-cneter/crisis-cneter.component' ;
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { HeroGuideComponent } from './hero-guide.component';
     HeroDetailComponent,
     MessagesComponent,
     DashboardComponent,
+    CrisisCneterComponent,
     HeroSearchComponent,
   ],
   imports: [
