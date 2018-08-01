@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Hero } from '../hero'
 import { HeroService } from '../hero.service' // 不需要关系数据到底是怎么来的（模拟、http请求....）
+import { ActivatedRoute, ParamMap } from '@angular/router'
+import { Observable } from 'rxjs';
+import { switchMap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-heroes',
@@ -10,17 +13,31 @@ import { HeroService } from '../hero.service' // 不需要关系数据到底是�
 export class HeroesComponent implements OnInit {
 
   heroes: Hero[];
+  heroes$: Observable<Hero[]>;
+  private selectedId: number;
 
-  constructor(private heroService: HeroService) { }
+  constructor(
+    private heroService: HeroService,
+    private route: ActivatedRoute
+  ) { }
 
   ngOnInit() {
   
-    this.heroService.getHeroes().subscribe(
-      heroes => this.heroes = heroes // 如果只有next可以这样处理
-      /* {
-        next: heroes => this.heroes = heroes
-      } */
-    );
+    // this.heroService.getHeroes().subscribe(
+    //   heroes => this.heroes = heroes // 如果只有next可以这样处理
+    //   /* {
+    //     next: heroes => this.heroes = heroes
+    //   } */
+    // );
+
+    // 进化版本）
+    this.heroes$ = this.route.paramMap.pipe(
+      switchMap((params: ParamMap) => {
+        this.selectedId = +params.get('id');
+        return this.heroService.getHeroes();
+      })
+    )
+    this.heroes$.subscribe(heroes => this.heroes = heroes)
   }
 
   add(name: string): void {

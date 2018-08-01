@@ -73,3 +73,7 @@ button.delete {
     background-color: gray !important;
     color: white;
 }
+
+.selected {
+    border: 1px solid yellow;
+}

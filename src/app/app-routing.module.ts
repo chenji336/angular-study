@@ -8,14 +8,24 @@ const routes: Routes = [
   {
     path: 'guide',
     loadChildren: 'src/app/hero-guide/hero-guide.module#HeroGuideModule'
-  }, {
+  }, 
+  {
     path: 'study',
     loadChildren: 'src/app/study/study.module#StudyModule'
-  }, {
-    path: '', 
-    redirectTo: 'study', 
+  }, 
+  {
+    path: '',
+    redirectTo: 'study',
     pathMatch: 'full'
-  }, {
+  },
+  // 如果定义了material在forChild中，这里无需定义
+  // 注意点：引入的material.module需要在AppRouting.module前面，否则会有限匹配**而不是material 
+  // {
+  //   path: 'material',
+  //   redirectTo: 'material',
+  //   pathMatch: 'full'
+  // }, 
+  {
     path: '**', // 通配符
     component: NotFoundComponent
   }
@@ -24,7 +34,7 @@ const routes: Routes = [
 @NgModule({
   imports: [
     RouterModule.forRoot(
-      routes, 
+      routes,
       // {enableTracing: true} // 可以日志里查看路由事件
     )
   ], // 启动路由

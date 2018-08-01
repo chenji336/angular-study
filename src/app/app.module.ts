@@ -9,10 +9,10 @@ import { FormsModule } from '@angular/forms'; // 可以使用：[(ngModel)]
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module'
-import { MaterialComponent } from './material/material.component';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'; // material需要BrowserAnimationsModule（跟BrowserMOdule一样，其他地方不需要引入了）
 import { SharedModule } from './shared/shared.module' // 因为使用到了material一些component，所以需要引入
+import { MaterialModule } from './material/material.module'
 
 // HttpClientModule需要放在最AppModule里面，就算没有使用到（一开始放在hero-guide.module里面使用的会报错）
 import { HttpClientModule } from '@angular/common/http';
@@ -23,10 +23,10 @@ import { InMemoryDataService } from './in-memory-data.service'
 @NgModule({
   declarations: [
     AppComponent,
-    MaterialComponent,
-    NotFoundComponent
+    NotFoundComponent,
   ],
   imports: [
+    MaterialModule, // 定义在AppRoutingModule前面，这样就可以先去匹配material路径
     BrowserModule,
     FormsModule,
     AppRoutingModule,
@@ -38,6 +38,7 @@ import { InMemoryDataService } from './in-memory-data.service'
 
     // StudyModule,
     // HeroGuideModule,
+   
 
     BrowserAnimationsModule,
     SharedModule
