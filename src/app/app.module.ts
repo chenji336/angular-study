@@ -17,14 +17,16 @@ import { AnimationStudyModule } from './animation-study/animation-study.module'
 
 // HttpClientModule需要放在最AppModule里面，就算没有使用到（一开始放在hero-guide.module里面使用的会报错）
 import { HttpClientModule } from '@angular/common/http';
-import { NotFoundComponent } from './not-found/not-found.component'
-import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api'
+import { NotFoundComponent } from './not-found/not-found.component';
+import { ComposeMessageComponent } from './compose-message/compose-message.component'
+import { HttpClientInMemoryWebApiModule} from 'angular-in-memory-web-api'
 import { InMemoryDataService } from './in-memory-data.service'
 
 @NgModule({
   declarations: [
     AppComponent,
     NotFoundComponent,
+    ComposeMessageComponent,
   ],
   imports: [
     MaterialModule, // 定义在AppRoutingModule前面，这样就可以先去匹配material路径

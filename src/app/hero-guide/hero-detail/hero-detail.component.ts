@@ -61,13 +61,15 @@ export class HeroDetailComponent implements OnInit {
 
     let heroId = this.hero ? this.hero.id : null;
     // navigate第二个参数为可选,可有可无，不影响（返回的时候可以看浏览器的url，会以分号隔开matrix）
-    this.router.navigate(['/guide/heroes',{id: heroId, foo: 'foo'}]);
+    // this.router.navigate(['/guide/heroes',{id: heroId, foo: 'foo'}]); // 如果想要指定相对路径，必须relativeTo设为当前的ActiveatedRoute
+    this.router.navigate(['../../heroes', { id: heroId, foo: 'foo' }], { relativeTo: this.route }); // 使用../../因为detail后面还有/id
   }
 
   navigate(): void {
     // 探索如何监听路由变化，这样可以触发initData??---使用router.paramMap--Observable
-    // this.router.navigateByUrl('/guide/detail/15');
-    this.router.navigate(['/guide/detail/15']);
+    // this.router.navigateByUrl('/guide/detail/15'); // 必须指定完整路径
+    this.router.navigate(['/guide/detail/15']); 
+    
   }
 
 }

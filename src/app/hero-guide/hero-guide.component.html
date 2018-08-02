@@ -4,9 +4,13 @@
 <!-- <app-heroes></app-heroes> -->
 
 <nav>
-    <a routerLink='/guide/heroes'>Heroes</a>
-    <a routerLink='/guide/crisis-center'>Crisis Center</a>
+    <!-- 1.无斜杠或./代表着相对于父路由下的路由;2.如果想要进入兄弟路由可以../;3.特殊情况可以写死，斜杠开头 -->
+    <a routerLink='heroes'>Heroes</a> 
+    <a routerLink='./crisis-center'>Crisis Center</a>
     <a routerLink='/guide/dashboard'>Dashboard</a>
-    <!-- <a routerLink="[{ outlets: { popup: ['heroes'] } }]">Heroes</a>
-    <a routerLink="[{ outlets: { popup: ['dashboard'] } }]">Dashboard</a> -->
+
+    <h2>Hero Guide</h2>
+    <router-outlet></router-outlet>
+    <app-messages></app-messages>
+
 </nav>

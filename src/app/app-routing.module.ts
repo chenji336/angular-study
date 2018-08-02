@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router'
 import { NotFoundComponent } from './not-found/not-found.component'
+import { ComposeMessageComponent } from './compose-message/compose-message.component'
 
 const routes: Routes = [
   // {path: 'guide', redirectTo: '/guide', pathMatch: 'full'},
@@ -13,6 +14,11 @@ const routes: Routes = [
     path: 'study',
     loadChildren: 'src/app/study/study.module#StudyModule'
   }, 
+  {
+    path: 'compose',
+    component: ComposeMessageComponent,
+    outlet: 'popup'
+  },
   {
     path: '',
     redirectTo: 'study',
