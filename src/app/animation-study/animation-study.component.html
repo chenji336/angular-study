@@ -1,0 +1,55 @@
+<div class='animation-container'>
+    <!-- 基本操作+动画回调 -->
+    <button (click)='changeState()'
+      (@baseState.start) = 'baseStateStart($event)'
+      (@baseState.done) = 'baseStateDone($event)'
+      [@baseState]='state'>
+        baseAnimation
+      </button>
+      <br/><br/>
+
+      <button (click)='changeState()'
+      [@tempState]='state'>
+        tempAnimation
+      </button>
+      <br/><br/>
+
+      <!-- 进出场需要：1.块状元素 2.可消失显示 3.动画是固定（"'in'"）-->
+      <span 
+        [@flyInOut]="state" 
+        [@baseState]='state'
+        *ngIf='showElement' 
+        style='display: inline-block'>
+        我受flyInOut控制，可以进出场哦
+      </span>
+      <br/><br/>
+
+      <span 
+        [@framesFlyInOut]="'in'" 
+        *ngIf='showElement' 
+        style='display: inline-block'>
+        我是动画帧，你可以看到我在三个时间点的状态，更真实
+      </span>
+      <br/><br/>
+
+      <span 
+        [@groupFlyInOut]="'in'" 
+        *ngIf='showElement' 
+        style='display: inline-block;width: 120px'>
+        我是group动画，主要为了解决多个时间线缓冲动画
+      </span>
+      <br/><br/>
+
+      <button (click)='show()'>
+        flyInOut
+      </button>
+      <br><br>
+
+      <div 
+        [@shrinkOut]="'in'" 
+        *ngIf='showElement' 
+        style='width:200px;height:200px;border:1px solid red'>
+        *是按照里面的内容高度来进行收缩的，这种情况是在不知道高宽，只是想自动适配内容的情况下
+      </div>
+      <div>看看上面折叠框消失，我是不是会上去</div>
+</div>

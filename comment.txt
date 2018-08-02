@@ -1,1 +1,2 @@
 1.src/app/material 是使用ng命令创建material创建出来的，测试使用
+2.study：小的测试点都放在study文件夹下面。如果是相对比较大的会放在相应的文件夹下面（比如animation-study）
