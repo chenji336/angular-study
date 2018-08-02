@@ -25,7 +25,7 @@ export const voidAnimation =
 // 自动属性值（当不知道元素里面 内容的 高宽时候可以使用*代替。如果知道本身高度可以自己定义）
 export const autoCaclAnimation =
     trigger('shrinkOut', [
-        state('in', style({
+        state('in', style({ // 如果是*，引用的时候可以任意编写或则不编写 [@shrinkOut](="'in'")?
             height: '*'
         })),
         transition('* => void', [
