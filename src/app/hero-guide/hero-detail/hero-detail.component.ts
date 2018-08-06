@@ -6,6 +6,8 @@ import { HeroService } from '../hero.service'
 import { Observable } from 'rxjs';
 import { switchMap } from 'rxjs/operators'
 
+import { DialogService } from '../../dialog.service'
+
 @Component({
   selector: 'app-hero-detail',
   templateUrl: './hero-detail.component.html',
@@ -15,12 +17,14 @@ export class HeroDetailComponent implements OnInit {
 
   @Input() hero: Hero;
   hero$: Observable<Hero>;
+  preName: string; // 修改之前的名字
 
   constructor(
     private heroService: HeroService,
     private location: Location,
     private route: ActivatedRoute,
-    private router: Router
+    private router: Router,
+    private dialogService: DialogService
   ) { }
 
   ngOnInit(): void {
@@ -34,11 +38,12 @@ export class HeroDetailComponent implements OnInit {
       .subscribe(hero => {
         console.log('hero:', hero);
         this.hero = hero
+        this.preName = hero.name
       }) */
 
     // 如果会复用该组件（比如navigate到另外一个英雄id），就需要使用下面的代码替换(因为复用组件不会触发ngOnInit)
     // route.paramMap本身就是Observalbe，可以进行监听，因此路由改变的时候还是在监听着的
-    this.hero$ = this.route.paramMap.pipe(
+    /* this.hero$ = this.route.paramMap.pipe(
       switchMap((params: ParamMap) => {
         return this.heroService.getHero(+params.get('id'))
       })
@@ -46,12 +51,21 @@ export class HeroDetailComponent implements OnInit {
     this.hero$.subscribe(hero => {
       console.log('hero:', hero);
       this.hero = hero
+      this.preName = hero.name
+    }) */
+
+    // 如果想要在路由进入前加载数据，使用resolve
+    this.route.data.subscribe((data: { hero: Hero }) => {
+      console.log('resolve-hero:', data.hero);
+      this.hero = data.hero
+      this.preName = this.hero.name
     })
   }
 
   save(): void {
     this.heroService.updateHero(this.hero)
       .subscribe(() => {
+        this.preName = this.hero.name
         this.goBack();
       })
   }
@@ -68,8 +82,14 @@ export class HeroDetailComponent implements OnInit {
   navigate(): void {
     // 探索如何监听路由变化，这样可以触发initData??---使用router.paramMap--Observable
     // this.router.navigateByUrl('/guide/detail/15'); // 必须指定完整路径
-    this.router.navigate(['/guide/detail/15']); 
-    
+    this.router.navigate(['/guide/detail/15']);
+  }
+
+  canDeactive(): Observable<boolean> | boolean {
+    if (!this.hero || this.hero.name === this.preName) {
+      return true;
+    }
+    return this.dialogService.confirm('Discard changes?')
   }
 
 }

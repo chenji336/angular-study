@@ -2,6 +2,11 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router'
 import { NotFoundComponent } from './not-found/not-found.component'
 import { ComposeMessageComponent } from './compose-message/compose-message.component'
+import { CanDeactiveGuard } from './can-deactive-guard.service'
+
+// 暂时先放在这里使用(最好放在LoginModule，因为在这个module中才会调用)
+import { AuthGuard } from './auth-guard.service' 
+import { AuthService } from './auth.service' 
 
 const routes: Routes = [
   // {path: 'guide', redirectTo: '/guide', pathMatch: 'full'},
@@ -44,6 +49,11 @@ const routes: Routes = [
       // {enableTracing: true} // 可以日志里查看路由事件
     )
   ], // 启动路由
-  exports: [RouterModule] // 不导出的话，外面就使用不了router-outlet组件了 routerLink指令
+  exports: [RouterModule], // 不导出的话，外面就使用不了router-outlet组件了 routerLink指令
+  providers: [
+    AuthGuard,
+    AuthService,
+    CanDeactiveGuard,
+  ]
 })
 export class AppRoutingModule { }
