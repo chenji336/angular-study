@@ -1,16 +1,18 @@
 import { Injectable } from '@angular/core'
 import {
     Router,
+    Route,
     ActivatedRouteSnapshot,
     RouterStateSnapshot,
     CanActivate,
     CanActivateChild,
+    CanLoad,
     NavigationExtras
 } from '@angular/router'
 import { AuthService } from './auth.service'
 
 @Injectable()
-export class AuthGuard implements CanActivate, CanActivateChild {
+export class AuthGuard implements CanActivate, CanActivateChild, CanLoad {
 
     constructor(
         private authService: AuthService,
@@ -33,6 +35,13 @@ export class AuthGuard implements CanActivate, CanActivateChild {
         // console.log('ActivatedRouteSnapshot-route:', route)
         // console.log('RouterStateSnapshot-state:', state)
         return this.canActivate(route, state);
+    }
+
+    // canLoad使用于懒加载，只有真正进入的时候才会去加载该文件，而canActive不行
+    canLoad(route: Route): boolean {
+        console.log('AuthGuard#canLoad called');
+        let url: string = `/${route.path}`;
+        return this.checkLogin(url);
     }
 
     checkLogin(url: string): boolean {

@@ -21,7 +21,8 @@ const routes: Routes = [
   }, 
   {
     path: 'admin',
-    loadChildren: 'src/app/admin/admin.module#AdminModule'
+    loadChildren: 'src/app/admin/admin.module#AdminModule',
+    canLoad: [AuthGuard] // 当进入的时候才会加载admin-module
   },
   {
     path: 'compose',
