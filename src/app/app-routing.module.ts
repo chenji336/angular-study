@@ -7,6 +7,7 @@ import { CanDeactiveGuard } from './can-deactive-guard.service'
 // 暂时先放在这里使用(最好放在LoginModule，因为在这个module中才会调用)
 import { AuthGuard } from './auth-guard.service' 
 import { AuthService } from './auth.service' 
+import { SelectivePreloadingStrategy } from './selective-preloading-strategy'
 
 const routes: Routes = [
   // {path: 'guide', redirectTo: '/guide', pathMatch: 'full'},
@@ -17,12 +18,18 @@ const routes: Routes = [
   }, 
   {
     path: 'study',
-    loadChildren: 'src/app/study/study.module#StudyModule'
+    loadChildren: 'src/app/study/study.module#StudyModule',
+    data: {
+      preload: true
+    }
   }, 
   {
     path: 'admin',
     loadChildren: 'src/app/admin/admin.module#AdminModule',
-    canLoad: [AuthGuard] // 当进入的时候才会加载admin-module
+    canLoad: [AuthGuard], // 当进入的时候才会加载admin-module,会阻塞预加载（下面虽然为preload，但是不会进行预加载）
+    data: {
+      preload: true
+    }
   },
   {
     path: 'compose',
@@ -53,7 +60,8 @@ const routes: Routes = [
       routes,
       {
         // enableTracing: true // 可以日志里查看路由事件
-        preloadingStrategy: PreloadAllModules // 在加载首屏后立刻加载后面的module，但是canLoad守卫保护的除外
+        // preloadingStrategy: PreloadAllModules // 在加载首屏后立刻加载后面的module，但是canLoad守卫保护的除外
+        preloadingStrategy: SelectivePreloadingStrategy // 自定义加载路由
       } 
     )
   ], // 启动路由
@@ -62,6 +70,7 @@ const routes: Routes = [
     AuthGuard,
     AuthService,
     CanDeactiveGuard,
+    SelectivePreloadingStrategy,
   ]
 })
 export class AppRoutingModule { }
