@@ -9,7 +9,7 @@ import { AuthGuard } from '../auth-guard.service'
 
 const routes: Routes = [
     {
-        path: 'admin',
+        path: '',
         component: AdminComponent,
         canActivate: [AuthGuard],
         // canActivateChild: [AuthGuard], // 如果这里不注释掉，第一次进入child时候，会进入两次。当然，如果下面是直接使用children而不是children->children的话就不会

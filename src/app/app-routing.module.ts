@@ -20,6 +20,10 @@ const routes: Routes = [
     loadChildren: 'src/app/study/study.module#StudyModule'
   }, 
   {
+    path: 'admin',
+    loadChildren: 'src/app/admin/admin.module#AdminModule'
+  },
+  {
     path: 'compose',
     component: ComposeMessageComponent,
     outlet: 'popup'

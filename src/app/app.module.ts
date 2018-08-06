@@ -14,7 +14,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations'; 
 import { SharedModule } from './shared/shared.module' // 因为使用到了material一些component，所以需要引入
 import { MaterialModule } from './material/material.module'
 import { AnimationStudyModule } from './animation-study/animation-study.module'
-import { AdminModule } from './admin/admin.module'
+// import { AdminModule } from './admin/admin.module' // 做懒加载
 import { LoginModule } from './login/login.module'
 
 // HttpClientModule需要放在最AppModule里面，就算没有使用到（一开始放在hero-guide.module里面使用的会报错）
@@ -35,7 +35,7 @@ import { DialogService } from './dialog.service'
   imports: [
     MaterialModule, // 定义在AppRoutingModule前面，这样就可以先去匹配material路径
     AnimationStudyModule,
-    AdminModule,
+    // AdminModule,
     LoginModule,
     
     BrowserModule,
