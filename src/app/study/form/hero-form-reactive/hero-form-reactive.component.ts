@@ -39,7 +39,10 @@ export class HeroFormReactiveComponent implements OnInit {
     })
   }
 
- 
+  updateName() {
+    // name就是FormControl,如果直接FormControl控件也可以直接使用setValue方法
+    this.name.setValue('chenji');
+  }
 
   onSubmit() { 
     console.log('heroForm:', this.heroForm);
@@ -54,6 +57,7 @@ export class HeroFormReactiveComponent implements OnInit {
   }
   
   get name() {
+    // console.log(this.heroForm.get('name'))
     return this.heroForm.get('name');
   }
 

@@ -12,7 +12,8 @@ import { InputComponent } from './form/input/input.component';
 import { HeroFormComponent } from './form/hero-form/hero-form.component';
 import { HeroFormReactiveComponent } from './form/hero-form-reactive/hero-form-reactive.component'
 import { ForbiddenValidatorDirective } from './form/shared/forbidden-name.directive'
-import { IdentifyRevealedValidatorDirective } from './form/shared/identify-revealed.directive'
+import { IdentifyRevealedValidatorDirective } from './form/shared/identify-revealed.directive';
+import { HeroFormReactiveNestedComponent } from './form/hero-form-reactive-nested/hero-form-reactive-nested.component'
 
 @NgModule({
     declarations: [
@@ -25,7 +26,8 @@ import { IdentifyRevealedValidatorDirective } from './form/shared/identify-revea
         HeroFormComponent,
         HeroFormReactiveComponent,
         ForbiddenValidatorDirective,
-        IdentifyRevealedValidatorDirective
+        IdentifyRevealedValidatorDirective,
+        HeroFormReactiveNestedComponent
     ],
     imports: [
         FormsModule,

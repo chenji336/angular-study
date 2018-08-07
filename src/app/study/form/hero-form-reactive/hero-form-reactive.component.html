@@ -8,8 +8,11 @@
       <!-- 可以对比hero-from里面的html看，现在验证已经放在了ts中，跟界面解耦;formControlName是在ReactiveFormsModule中的，需要引入 
         保留required是为了样式 样式需要使用到这个属性
         input属性中不要定义name，否则errors中会找不到该属性值
+        [formControl]='name' 跟 formControlName=‘name'等价
       -->
-      <input type="text" id='name' class='form-control'  formControlName='name' required>
+      <input type="text" id='name' class='form-control' [formControl]='name' required>
+      <!-- 可以获取formControl控制的值 -->
+      {{name.value}}
       <div *ngIf="name.invalid && (name.dirty || name.touched)" class="alert alert-danger">
         <div *ngIf="name.errors.required">
           Name is required.
@@ -38,6 +41,7 @@
       </select>
     </div>
 
+    <button type='button' (click)='updateName()'>Update Name</button>
     <!-- form.reset()很关键，否则在清空的时候就会看到错误信息提示；reset可以重新设置pristine -->
     <button type='button' class='btn btn-default' (click)='newHero();heroForm.reset()'>New Hero</button>
     <!-- type='submit' 所以可以触发form上面的ngSubmit -->
