@@ -7,7 +7,7 @@ import { Hero } from '../hero'
   styleUrls: ['./hero-form.component.css']
 })
 export class HeroFormComponent implements OnInit {
-
+  
   powers = ['Really Smart', 'Super Flexible',
   'Super Hot', 'Weather Changer'];
 

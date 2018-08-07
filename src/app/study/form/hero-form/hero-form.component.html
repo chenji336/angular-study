@@ -3,22 +3,33 @@
   <!-- ngForm是指令，angular会默认的放在form上面 
        #heroForm='ngForm' 这样heroForm就带有valid和value（object),管控带有ngModel指令和name属性的元素（name属性就是value（object）中的key，ngModel是value）
   -->
-  <form #heroForm='ngForm' (ngSubmit)='onSubmit(heroForm)'>
+  <form #heroForm='ngForm' appIdentifyRevealed (ngSubmit)='onSubmit(heroForm)'>
     <!-- ngModel指令 不仅提供双向绑定，还提供一些样式和追踪功能 -->
     <div class="form-group">
       <label for="name">Name</label>
-      <input type="text" class="form-control" [(ngModel)]='model.name' name='name' id="name" #name='ngModel' required>
+      <input type="text" class="form-control" [(ngModel)]='model.name' name='name' id="name" #name='ngModel' minlength="4" appForbiddenName='bob'
+        required>
       <!-- #name没有绑定到ngModel也可以看到下面的className属性,绑定了看不到 -->
       TODO: remove this: {{name.className}}
       <!-- #name需要绑定ngModel才能使用下面的属性；hidden通过后面添加和移除 -->
-      <div [hidden]='name.valid || name.pristine' class='alert alert-danger'>
+      <!-- <div [hidden]='name.valid || name.pristine' class='alert alert-danger'>
         Name is required
+      </div> -->
+      <!-- 更多的验证 -->
+      <div *ngIf='name.invalid && (name.dirty || name.touched)' class='alert alert-danger'>
+        <div *ngIf='name.errors.required'>Name is Required.</div>
+        <div *ngIf='name.errors.minlength'>Name must be least 4 characters long.</div>
+        <div *ngIf='name.errors.forbiddenName'>Name can not be bob.</div>
       </div>
     </div>
 
     <div class="form-group">
       <label for="alterEgo">Alter Ego</label>
       <input type="text" [(ngModel)]='model.alterEgo' name='alterEgo' class="form-control" id="alterEgo">
+    </div>
+
+    <div *ngIf="heroForm.errors?.identifyRevealed && (heroForm.touched || heroForm.dirty)" class="cross-validation-error-message alert alert-danger">
+        Name cannot match alter ego.
     </div>
 
     <div class="form-group">
@@ -31,7 +42,7 @@
     <!-- form.reset()很关键，否则在清空的时候就会看到错误信息提示；reset可以重新设置pristine -->
     <button type='button' class='btn btn-default' (click)='newHero();heroForm.reset()'>New Hero</button>
     <!-- type='submit' 所以可以触发form上面的ngSubmit -->
-    <button type="submit" [disabled]='!heroForm.form.valid' class="btn btn-success">Submit</button>
+    <button type="submit"  class="btn btn-success">Submit</button>
     <div>{{diagnostic}}</div>
   </form>
 </div>
