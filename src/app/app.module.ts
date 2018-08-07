@@ -2,6 +2,7 @@
 import { BrowserModule } from '@angular/platform-browser'; // 包含commonModule--ngIf等；applicationModule应用module
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms'; // 可以使用：[(ngModel)]
+import { Router } from '@angular/router'
 
 // 懒加载不需要引入这些module，否则一开始就会加载它们
 // import { StudyModule } from './study/study.module'
@@ -21,7 +22,7 @@ import { LoginModule } from './login/login.module'
 import { HttpClientModule } from '@angular/common/http';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { ComposeMessageComponent } from './compose-message/compose-message.component'
-import { HttpClientInMemoryWebApiModule} from 'angular-in-memory-web-api'
+import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api'
 import { InMemoryDataService } from './in-memory-data.service'
 
 import { DialogService } from './dialog.service'
@@ -37,7 +38,7 @@ import { DialogService } from './dialog.service'
     AnimationStudyModule,
     // AdminModule,
     LoginModule,
-    
+
     BrowserModule,
     FormsModule,
     AppRoutingModule,
@@ -49,7 +50,7 @@ import { DialogService } from './dialog.service'
 
     // StudyModule,
     // HeroGuideModule,
-   
+
     BrowserAnimationsModule,
     SharedModule
   ],
@@ -58,4 +59,9 @@ import { DialogService } from './dialog.service'
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+  // Diagnostic only: inspect router configuration
+  constructor(router: Router) {
+    console.log('Routes: ', JSON.stringify(router.config, undefined, 2));
+  }
+}
