@@ -1,6 +1,12 @@
-<mat-tab-group selectedIndex='1'>
-    <!-- 任何属性都不设置，一开始加载所有tab下的组件 -->
-    <mat-tab label="dom"> <app-dom></app-dom> </mat-tab>
-    <mat-tab label="lifecycle"> <app-lifecycle>i am ng-content insert in study.component</app-lifecycle> </mat-tab>
+<!-- 任何属性都不设置，一开始加载所有tab下的组件 -->
+<!-- <mat-tab-group selectedIndex='1'>
+    <mat-tab label="dom">
+        <app-dom></app-dom>
+    </mat-tab>
+    <mat-tab label="lifecycle">
+        <app-lifecycle>i am ng-content insert in study.component</app-lifecycle>
+    </mat-tab>
     <mat-tab label="Third"> Content 3 </mat-tab>
-</mat-tab-group>
+</mat-tab-group> -->
+
+<router-outlet></router-outlet>

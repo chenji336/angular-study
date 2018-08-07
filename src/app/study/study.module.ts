@@ -6,14 +6,18 @@ import { StudyComponent } from './study.component'
 import { StudyRoutingModule } from './study-routing.module';
 import { DomComponent } from './dom/dom.component';
 import { LifecycleComponent } from './lifecycle/lifecycle.component';
-import { ChildComponent } from './lifecycle/child/child.component'
+import { ChildComponent } from './lifecycle/child/child.component';
+import { FormComponent } from './form/form.component';
+import { InputComponent } from './form/input/input.component'
 
 @NgModule({
     declarations: [
         StudyComponent,
         DomComponent,
         LifecycleComponent,
-        ChildComponent
+        ChildComponent,
+        FormComponent,
+        InputComponent
     ],
     imports: [
         FormsModule,

@@ -11,7 +11,7 @@ const routes: Routes = [
     {
         path: '',
         component: AdminComponent,
-        canActivate: [AuthGuard],
+        canActivate: [AuthGuard], // 即使懒加载了，再没有进入到admin时候还是会加载admin这个文件，希望是只有真正进入的时候才加载
         // canActivateChild: [AuthGuard], // 如果这里不注释掉，第一次进入child时候，会进入两次。当然，如果下面是直接使用children而不是children->children的话就不会
         children: [
             {

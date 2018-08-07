@@ -1,0 +1,25 @@
+<!-- <input type="text" (keyup)='onKey($event)'> -->
+
+<!-- （#box是在html中才能使用的局部变量）如果没有keyup事件，则box.value不会显示；下面是一个简单的keyup事件 -->
+<!-- <input type="text" #box (keyup)='0'>
+{{box.value}} -->
+
+<!-- <input type="text" #box (keyup)='onKey(box.value)'>
+{{values}} -->
+
+<!-- 事件过滤，在回车/消失焦点的时候才触发（vue应该是借鉴的这里） -->
+<input type="text" 
+    #box
+    (blur)= 'update(box.value)'
+    (keyup.enter)='update(box.value)'>
+{{values}}
+
+<br>
+<!-- 总结例子 -->
+<input 
+    #newHero
+    (keyup.enter)='addHero(newHero.value)'
+    (blur)='addHero(newHero.value);newHero.value=""'
+    type="text">
+<button (click)='addHero(newHero.value)'>addHero</button>
+<ul><li *ngFor='let hero of heroes'>{{hero}}</li></ul> 
