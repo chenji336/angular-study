@@ -8,7 +8,8 @@ import { DomComponent } from './dom/dom.component';
 import { LifecycleComponent } from './lifecycle/lifecycle.component';
 import { ChildComponent } from './lifecycle/child/child.component';
 import { FormComponent } from './form/form.component';
-import { InputComponent } from './form/input/input.component'
+import { InputComponent } from './form/input/input.component';
+import { HeroFormComponent } from './form/hero-form/hero-form.component'
 
 @NgModule({
     declarations: [
@@ -17,7 +18,8 @@ import { InputComponent } from './form/input/input.component'
         LifecycleComponent,
         ChildComponent,
         FormComponent,
-        InputComponent
+        InputComponent,
+        HeroFormComponent
     ],
     imports: [
         FormsModule,
