@@ -1,0 +1,20 @@
+<!-- **自己封装组件中，formGropu也要引入进来，否则下面的formControlName无效 -->
+<div [formGroup]='form'>
+
+  <!-- [attr.for]=[for] -->
+  <label [for]="question.key">{{question.label}}</label>
+  <!-- <label [attr.for]="question.key">{{question.label}}</label> -->
+
+  <div [ngSwitch]='question.controlType'>
+
+    <!-- [formControl]='question.key'如何？ -->
+    <input *ngSwitchCase="'textbox'" [type]="question.type" [id]='question.key' [formControlName]='question.key'>
+
+    <select *ngSwitchCase="'dropdown'" [id]='question.key' [formControlName]='question.key'>
+      <option *ngFor='let option of question.options' [value]="option.key">{{option.value}}</option>
+    </select>
+
+  </div>
+
+  <div class='errorsMsg' *ngIf='!isValid'>{{question.label}} is required!</div>
+</div>

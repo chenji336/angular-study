@@ -13,7 +13,11 @@ import { HeroFormComponent } from './form/hero-form/hero-form.component';
 import { HeroFormReactiveComponent } from './form/hero-form-reactive/hero-form-reactive.component'
 import { ForbiddenValidatorDirective } from './form/shared/forbidden-name.directive'
 import { IdentifyRevealedValidatorDirective } from './form/shared/identify-revealed.directive';
-import { HeroFormReactiveNestedComponent } from './form/hero-form-reactive-nested/hero-form-reactive-nested.component'
+import { HeroFormReactiveNestedComponent } from './form/hero-form-reactive-nested/hero-form-reactive-nested.component';
+import { HeroFormDynamicComponent } from './form/hero-form-dynamic/hero-form-dynamic.component';
+import { DynamicFormComponent } from './form/hero-form-dynamic/dynamic-form/dynamic-form.component';
+import { DynamicFormQuestionComponent } from './form/hero-form-dynamic/dynamic-form-question/dynamic-form-question.component';
+import { FormItemComponent } from './form/hero-form/form-item/form-item.component'
 
 @NgModule({
     declarations: [
@@ -27,7 +31,11 @@ import { HeroFormReactiveNestedComponent } from './form/hero-form-reactive-neste
         HeroFormReactiveComponent,
         ForbiddenValidatorDirective,
         IdentifyRevealedValidatorDirective,
-        HeroFormReactiveNestedComponent
+        HeroFormReactiveNestedComponent,
+        HeroFormDynamicComponent,
+        DynamicFormComponent,
+        DynamicFormQuestionComponent,
+        FormItemComponent
     ],
     imports: [
         FormsModule,
