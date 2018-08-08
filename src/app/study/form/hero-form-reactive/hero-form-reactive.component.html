@@ -29,10 +29,13 @@
       </div>
     </div>
 
-    <div class="form-group">
+    <!-- <div class="form-group">
       <label for="alterEgo">Alter Ego</label>
       <input type="text" id="alterEgo" class="form-control" formControlName='alterEgo'  >
-    </div>
+    </div> -->
+
+    <!-- 响应表单组件跟模板驱动表单区别[(ngModel)]+name=formControlName+this.fb.group(control:xxx) -->
+    <app-form-item key="alterEgo" formControlName='alterEgo'></app-form-item>
 
     <div class="form-group">
       <label for="power">Hero Power</label>

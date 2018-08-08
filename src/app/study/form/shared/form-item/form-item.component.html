@@ -1,0 +1,13 @@
+<div class="form-group">
+  <label [for]="key">Alter Ego</label>
+  <!-- 自定义验证，如果是模板的话可以直接写属性，如果是响应的话可以在providers中引用以及fb.group中编写 -->
+  <input type="text" [(ngModel)]='value' [id]='key' class="form-control">
+</div>
+<!-- <div *ngIf="heroForm?.errors?.identifyRevealed && (heroForm.touched || heroForm.dirty)" class="cross-validation-error-message alert alert-danger">
+    Name cannot match alter ego.
+</div> -->
+
+<!-- <div *ngIf='control?.invalid && (control.dirty || control.touched)' class='alert alert-danger'>
+  <div *ngIf='control.errors.required'>{{key}} is Required.</div>
+  <div *ngIf='control.errors.forbiddenName'>{{key}} can not be bob.</div>
+</div> -->

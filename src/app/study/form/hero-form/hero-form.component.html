@@ -23,16 +23,24 @@
       </div>
     </div>
 
-    <div class="form-group">
+    <!-- <div class="form-group">
       <label for="alterEgo">Alter Ego</label>
       <input type="text" [(ngModel)]='model.alterEgo' name='alterEgo' class="form-control" id="alterEgo">
     </div>
+     -->
 
+    <!-- 1.如果要自定义表单控件（模板驱动表单），需要下面两个方法进行绑定 
+         2.app-form-item 需要provider以及implement controlValueAccess
+         3.如果想要验证form或则control，也可以通过参数直接传过去
+         4.如果要定义校验规则，也需要定义在这里，否则FormControl获取不到errors
+    -->
+    <app-form-item key='alterEgo' 
+      #alterEgo='ngModel' minlength="4" appForbiddenName='bob'
+      [heroForm]='heroForm' [control]='alterEgo' 
+      [(ngModel)]='model.alterEgo' name='alterEgo'></app-form-item>
     <div *ngIf="heroForm.errors?.identifyRevealed && (heroForm.touched || heroForm.dirty)" class="cross-validation-error-message alert alert-danger">
         Name cannot match alter ego.
     </div>
-
-    <!-- <app-form-item [form]='heroForm' name='altaerEgo' [value]='model.alterEgo'></app-form-item> -->
 
     <div class="form-group">
       <label for="power">Hero Power</label>

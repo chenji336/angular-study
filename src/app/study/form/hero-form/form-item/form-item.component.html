@@ -1,9 +1,0 @@
-<div class="form-group" >
-  <label for="alterEgo">Alter Ego</label>
-  <input type="text" [(ngModel)]='value' [name]='name' class="form-control" [id]="name">
-  {{value}}
-</div>
-
-<div *ngIf="form.errors?.identifyRevealed && (form.touched || form.dirty)" class="cross-validation-error-message alert alert-danger">
-  Name cannot match alter ego.
-</div>
