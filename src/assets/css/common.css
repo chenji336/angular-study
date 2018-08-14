@@ -1,0 +1,175 @@
+/* ==================== 基本样式start ==================== */
+*, :after, :before {
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+}
+blockquote, body, button, dd, dl, dt, fieldset, form, h1, h2, h3, h4, h5, h6, hr, input, legend, li, ol, p, pre, td, textarea, th, ul {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+html, body {
+    height: 100%;
+    width: 100%;
+    background-color: #FFF;
+    color: #666;
+}
+body, button, input, select, textarea {
+    font: 14px/1.5 'PingFangSC-Medium', 'Microsoft YaHei', sans-serif;
+}
+a, input, button, div, button:focus {
+    -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+    outline: none;
+}
+ul, li {
+    list-style-type: none;
+}
+a, a:hover, a:focus {
+    text-decoration: none;
+    outline: none;
+}
+img {
+    display: block;
+    height: 100%;
+    width: 100%;
+}
+p {
+    color: #333;
+}
+
+/* scrollbar */
+::-webkit-scrollbar-track {
+    border-radius: 10px;
+    background-color: transparent;
+}
+::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+    background-color: transparent;
+}
+::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background-color: #4A5160;
+}
+
+/* 隐藏 */
+.hidden {
+    display: none !important;
+}
+.hide {
+    display: none ;
+}
+
+/* 清除浮动代码 */
+.clearfloat:after {
+    display: block;
+    height: 0;
+    visibility: hidden;
+    clear: both;
+    content: "";
+}
+.clearfloat {
+    zoom: 1;
+}
+
+/* 子元素弹性布局 */
+.display-flex {
+    display: -webkit-box;
+    /* 老版本语法: Safari, iOS, Android browser, older WebKit browsers. */
+    /* 老版本语法: Firefox (buggy) */
+    display: -ms-flexbox;
+    /* 混合版本语法: IE 10 */
+    /* 新版本语法: Chrome 21+ */
+    display: flex;
+    /* 新版本语法: Opera 12.1, Firefox 22+ */
+}
+
+.flex-direction-row {
+    -webkit-box-direction: normal;
+    -webkit-box-orient: horizontal;
+    -moz-flex-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row;
+}
+
+.flex-direction-vertical {
+    -webkit-box-direction: normal;
+    -webkit-box-orient: vertical;
+    -moz-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+}
+
+.align-items-start {
+    -webkit-box-align: start;
+    -moz-align-items: start;
+    -ms-align-items: start;
+    -ms-flex-align: start;
+        align-items: start;
+}
+
+.align-items-center {
+    -webkit-box-align: center;
+    -moz-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+}
+
+.align-items-end {
+    -webkit-box-align: flex-end;
+    -moz-align-items: flex-end;
+    -ms-flex-align: flex-end;
+    align-items: flex-end;
+}
+
+.justify-content-center {
+    -webkit-box-pack: center;
+    -moz-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+}
+
+.justify-content-end {
+    -webkit-box-pack: flex-end;
+    -moz-justify-content: flex-end;
+    -ms-flex-pack: flex-end;
+    justify-content: flex-end;
+}
+
+.justify-content-top {
+    -webkit-box-pack: top;
+    -moz-justify-content: top;
+    -ms-flex-pack: top;
+    justify-content: top;
+}
+
+.justify-content-justify {
+    box-pack: justify;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    -o-box-pack: justify;
+    justify-content: space-between;
+}
+
+.flex-1 {
+    -webkit-box-flex: 1;
+    -moz-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+    overflow: hidden;
+}
+
+.flex-wrap {
+    -moz-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    -webkit-flex-wrap: wrap;
+}
+.float-left{
+    float: left;
+}
+.float-right{
+    float: right;
+}
+[hidden] {
+    display: none !important;
+}
