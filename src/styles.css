@@ -3,7 +3,7 @@
   @import url('https://unpkg.com/bootstrap@3.3.7/dist/css/bootstrap.min.css');
 
   /* angular6了既然还不支持配置postcss，烦躁 */
-  @import url('./assets/css/common.css');
+  /* @import url('./assets/css/common.css'); */
   /* Master Styles */
 
   h1 {

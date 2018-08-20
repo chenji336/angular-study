@@ -22,7 +22,7 @@ export class LifecycleComponent implements OnInit, AfterViewInit, AfterViewCheck
   parentValue: string;
   showChildInput: string = '';
 
-  // 这代表着Type   Selector代表的#后面的名称
+  // 效果跟在<app-child #child> @ViewChild('child') child一样
   @ViewChild(ChildComponent) childView: ChildComponent;
 
   constructor() {

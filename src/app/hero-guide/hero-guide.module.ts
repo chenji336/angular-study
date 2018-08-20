@@ -17,6 +17,11 @@ import { HeroSearchComponent } from './hero-search/hero-search.component';
 import { HeroGuideComponent } from './hero-guide.component';
 import { CrisisCneterComponent } from './crisis-cneter/crisis-cneter.component' ;
 
+import { HeroService } from './hero.service'
+// import { httpInterceptorProviders } from './http-interceptors/index'
+// import { NoopInterceptor } from './http-interceptors/noop-interceptor'
+
+
 @NgModule({
   declarations: [
     HeroGuideComponent,
@@ -33,6 +38,11 @@ import { CrisisCneterComponent } from './crisis-cneter/crisis-cneter.component' 
 
     HeroGuideRoutingModule,
   ],
-  providers: []
+  providers: [
+    HeroService,
+
+    // 拦截器应该放在httpmodule那边，一般放在app.module里面。放在其他位置会发现没有效果
+    // httpInterceptorProviders,
+  ]
 })
 export class HeroGuideModule { }

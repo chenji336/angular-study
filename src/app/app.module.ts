@@ -26,6 +26,8 @@ import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api'
 import { InMemoryDataService } from './in-memory-data.service'
 
 import { DialogService } from './dialog.service'
+import { httpInterceptorProviders } from './hero-guide/http-interceptors/index'
+
 
 @NgModule({
   declarations: [
@@ -44,9 +46,11 @@ import { DialogService } from './dialog.service'
     AppRoutingModule,
 
     HttpClientModule,
-    HttpClientInMemoryWebApiModule.forRoot(
-      InMemoryDataService, { dataEncapsulation: false }
-    ),
+
+    // 如果想要使用json-server模拟数据，需要把下面的注释掉，否则会出现错误
+    // HttpClientInMemoryWebApiModule.forRoot(
+    //   InMemoryDataService, { dataEncapsulation: false }
+    // ),
 
     // StudyModule,
     // HeroGuideModule,
@@ -55,7 +59,8 @@ import { DialogService } from './dialog.service'
     SharedModule
   ],
   providers: [
-    DialogService
+    DialogService,
+    httpInterceptorProviders
   ],
   bootstrap: [AppComponent]
 })
