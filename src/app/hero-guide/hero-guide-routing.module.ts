@@ -16,7 +16,13 @@ const routes: Routes = [
     children: [
       { path: 'heroes', component: HeroesComponent },
       { path: 'crisis-center', component: CrisisCneterComponent },
-      { path: 'dashboard', component: DashboardComponent },
+      { 
+        path: 'dashboard', 
+        component: DashboardComponent,
+        data: {
+          keep: true
+        }
+      },
       { 
         path: 'detail/:id', 
         component: HeroDetailComponent,

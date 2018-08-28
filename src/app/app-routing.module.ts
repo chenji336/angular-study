@@ -20,7 +20,8 @@ const routes: Routes = [
     path: 'study',
     loadChildren: 'src/app/study/study.module#StudyModule',
     data: {
-      preload: true
+      preload: true,
+      keep: true
     }
   }, 
   {

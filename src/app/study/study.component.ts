@@ -9,9 +9,10 @@ export class StudyComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    console.log('i am study');
   }
 
-  sex = '';
+  sex = 'male';
 
   show() {
     console.log(this.sex);

@@ -2,7 +2,7 @@
 import { BrowserModule } from '@angular/platform-browser'; // 包含commonModule--ngIf等；applicationModule应用module
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms'; // 可以使用：[(ngModel)]
-import { Router } from '@angular/router'
+import { Router, RouteReuseStrategy} from '@angular/router'
 
 // 懒加载不需要引入这些module，否则一开始就会加载它们
 // import { StudyModule } from './study/study.module'
@@ -10,6 +10,7 @@ import { Router } from '@angular/router'
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module'
+import { AppRoutingCache } from './app-routing.cache'
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'; // material需要BrowserAnimationsModule（跟BrowserMOdule一样，其他地方不需要引入了）
 import { SharedModule } from './shared/shared.module' // 因为使用到了material一些component，所以需要引入
@@ -60,7 +61,8 @@ import { httpInterceptorProviders } from './hero-guide/http-interceptors/index'
   ],
   providers: [
     DialogService,
-    httpInterceptorProviders
+    httpInterceptorProviders,
+    {provide: RouteReuseStrategy, useClass: AppRoutingCache}
   ],
   bootstrap: [AppComponent]
 })
