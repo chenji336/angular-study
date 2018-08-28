@@ -10,3 +10,7 @@
 </mat-tab-group> -->
 
 <router-outlet></router-outlet>
+
+<input type="radio" name="sex" [(ngModel)]="sex" value="male">Male
+<input type="radio" name="sex" [(ngModel)]="sex" value="female">Female
+<button (click)='show()'>show</button>

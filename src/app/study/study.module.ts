@@ -17,7 +17,9 @@ import { HeroFormReactiveNestedComponent } from './form/hero-form-reactive-neste
 import { HeroFormDynamicComponent } from './form/hero-form-dynamic/hero-form-dynamic.component';
 import { DynamicFormComponent } from './form/hero-form-dynamic/dynamic-form/dynamic-form.component';
 import { DynamicFormQuestionComponent } from './form/hero-form-dynamic/dynamic-form-question/dynamic-form-question.component';
-import { FormItemComponent } from './form/shared/form-item/form-item.component'
+import { FormItemComponent } from './form/shared/form-item/form-item.component';
+import { TwoBindingComponent } from './two-binding/two-binding.component';
+import { CounterComponent } from './two-binding/counter/counter.component'
 
 @NgModule({
     declarations: [
@@ -35,7 +37,9 @@ import { FormItemComponent } from './form/shared/form-item/form-item.component'
         HeroFormDynamicComponent,
         DynamicFormComponent,
         DynamicFormQuestionComponent,
-        FormItemComponent
+        FormItemComponent,
+        TwoBindingComponent,
+        CounterComponent
     ],
     imports: [
         FormsModule,

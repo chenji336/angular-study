@@ -11,4 +11,10 @@ export class StudyComponent implements OnInit {
   ngOnInit() {
   }
 
+  sex = '';
+
+  show() {
+    console.log(this.sex);
+  }
+
 }

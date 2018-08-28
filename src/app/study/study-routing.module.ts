@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core'
 import { Routes, RouterModule } from '@angular/router'
 import { StudyComponent } from './study.component'
 import { FormComponent } from './form/form.component'
+import { TwoBindingComponent } from './two-binding/two-binding.component'
 
 const routes: Routes = [{
     path: '',
@@ -10,6 +11,10 @@ const routes: Routes = [{
         {
             path: 'form',
             component: FormComponent
+        },
+        {
+            path: 'binding',
+            component: TwoBindingComponent
         }
     ]
 }]
