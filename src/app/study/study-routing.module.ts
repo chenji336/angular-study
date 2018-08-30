@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router'
 import { StudyComponent } from './study.component'
 import { FormComponent } from './form/form.component'
 import { TwoBindingComponent } from './two-binding/two-binding.component'
+import { PipeComponent } from './pipe/pipe.component';
 
 const routes: Routes = [{
     path: '',
@@ -15,6 +16,10 @@ const routes: Routes = [{
         {
             path: 'binding',
             component: TwoBindingComponent
+        },
+        {
+            path: 'pipe',
+            component: PipeComponent
         }
     ]
 }]
