@@ -11,6 +11,17 @@
 
 <router-outlet></router-outlet>
 
+
+<!-- 使用radio，通过name进行分组 -->
 <!-- <input type="radio" name="sex" [(ngModel)]="sex" value="male">Male
 <input type="radio" name="sex" [(ngModel)]="sex" value="female">Female
 <button (click)='show()'>show</button> -->
+
+
+<!-- 占位符号，是ng-container而不是ng-template--ddd -->
+<ng-container>ng-container no *ngTemplateOutlet</ng-container>
+<ng-container *ngTemplateOutlet="greet">ng-container has *ngTemplateOutlet</ng-container>
+<ng-template #greet><div>ng-template has #greet</div></ng-template>
+<ng-template [ngIf]='true'><div>ng-template no #, ngIf=true</div></ng-template>
+<!-- ng-template默认是不显示出来的，类似ngIf=false -->
+<ng-template><div>ng-template no #, no ngIf</div></ng-template>

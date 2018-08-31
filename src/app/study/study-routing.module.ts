@@ -4,6 +4,7 @@ import { StudyComponent } from './study.component'
 import { FormComponent } from './form/form.component'
 import { TwoBindingComponent } from './two-binding/two-binding.component'
 import { PipeComponent } from './pipe/pipe.component';
+import { DirectiveComponent } from './directive/directive.component'
 
 const routes: Routes = [{
     path: '',
@@ -20,7 +21,11 @@ const routes: Routes = [{
         {
             path: 'pipe',
             component: PipeComponent
-        }
+        },
+        {
+            path: 'directive',
+            component: DirectiveComponent
+        },
     ]
 }]
 

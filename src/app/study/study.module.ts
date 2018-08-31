@@ -22,6 +22,9 @@ import { TwoBindingComponent } from './two-binding/two-binding.component';
 import { CounterComponent } from './two-binding/counter/counter.component';
 import { PipeComponent } from './pipe/pipe.component';
 import { NoNgmodelComponent } from './two-binding/no-ngmodel/no-ngmodel.component'
+import { AttributeDirective } from './directive/attribute.directive'
+import { StructDirective } from './directive/struct.directive';
+import { DirectiveComponent } from './directive/directive.component'
 
 @NgModule({
     declarations: [
@@ -43,7 +46,10 @@ import { NoNgmodelComponent } from './two-binding/no-ngmodel/no-ngmodel.componen
         TwoBindingComponent,
         CounterComponent,
         PipeComponent,
-        NoNgmodelComponent
+        NoNgmodelComponent,
+        AttributeDirective,
+        StructDirective,
+        DirectiveComponent
     ],
     imports: [
         FormsModule,
