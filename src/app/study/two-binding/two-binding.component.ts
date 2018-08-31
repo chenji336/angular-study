@@ -7,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TwoBindingComponent implements OnInit {
   count = 12;
+  fontSizePx = 15;
   constructor() { }
 
   ngOnInit() {

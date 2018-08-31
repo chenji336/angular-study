@@ -1,3 +1,12 @@
 <app-counter [count]='count'></app-counter>
 <br>
 <button (click)='showCount()'>外部count值</button>
+
+<br>
+<br>
+<!-- 没有使用ngmodel，根据xChange事件绑定
+但是原生的元素不遵循xChange，还好有ngmodel ，
+其实ngmodel也是[ngmodel] (ngmodelChange)组合的，是angular为每一个原生元素添加的
+-->
+<app-no-ngmodel [(size)]="fontSizePx"></app-no-ngmodel>
+<div [style.font-size.px]="fontSizePx">Resizable Text</div>

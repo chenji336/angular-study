@@ -20,7 +20,8 @@ import { DynamicFormQuestionComponent } from './form/hero-form-dynamic/dynamic-f
 import { FormItemComponent } from './form/shared/form-item/form-item.component';
 import { TwoBindingComponent } from './two-binding/two-binding.component';
 import { CounterComponent } from './two-binding/counter/counter.component';
-import { PipeComponent } from './pipe/pipe.component'
+import { PipeComponent } from './pipe/pipe.component';
+import { NoNgmodelComponent } from './two-binding/no-ngmodel/no-ngmodel.component'
 
 @NgModule({
     declarations: [
@@ -41,7 +42,8 @@ import { PipeComponent } from './pipe/pipe.component'
         FormItemComponent,
         TwoBindingComponent,
         CounterComponent,
-        PipeComponent
+        PipeComponent,
+        NoNgmodelComponent
     ],
     imports: [
         FormsModule,
