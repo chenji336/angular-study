@@ -24,7 +24,8 @@ import { PipeComponent } from './pipe/pipe.component';
 import { NoNgmodelComponent } from './two-binding/no-ngmodel/no-ngmodel.component'
 import { AttributeDirective } from './directive/attribute.directive'
 import { StructDirective } from './directive/struct.directive';
-import { DirectiveComponent } from './directive/directive.component'
+import { DirectiveComponent } from './directive/directive.component';
+import { ExponentialStrenthPipe } from './pipe/exponential-strenth.pipe'
 
 @NgModule({
     declarations: [
@@ -49,7 +50,8 @@ import { DirectiveComponent } from './directive/directive.component'
         NoNgmodelComponent,
         AttributeDirective,
         StructDirective,
-        DirectiveComponent
+        DirectiveComponent,
+        ExponentialStrenthPipe
     ],
     imports: [
         FormsModule,

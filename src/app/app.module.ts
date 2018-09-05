@@ -25,7 +25,6 @@ import { NotFoundComponent } from './not-found/not-found.component';
 import { ComposeMessageComponent } from './compose-message/compose-message.component'
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryDataService } from './in-memory-data.service';
-import { StructDirective } from './study/directive/struct.directive'
 
 import { DialogService } from './dialog.service'
 import { httpInterceptorProviders } from './hero-guide/http-interceptors/index'
